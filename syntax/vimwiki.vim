@@ -462,7 +462,7 @@ else
 endif
 hi def link VimwikiDelTextT VimwikiDelText
 
-hi def link VimWikiHL Constant
+hi def link VimWikiHL Todo
 
 hi def link VimwikiSuperScript Number
 hi def link VimwikiSuperScriptT VimwikiSuperScript
