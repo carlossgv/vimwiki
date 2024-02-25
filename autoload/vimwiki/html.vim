@@ -36,6 +36,9 @@ let s:rxCode = '`[^`]\+`'
 " text: ~~deleted text~~
 let s:rxDelText = '\~\~[^~`]\+\~\~'
 
+" text: ==highlighted text==
+let s:rxHighlight = '==\([^=]*\)=='
+
 " text: ^superscript^
 let s:rxSuperScript = '\^[^^`]\+\^'
 
@@ -388,6 +391,10 @@ function! s:tag_strike(value) abort
   return '<del>'.s:mid(a:value, 2).'</del>'
 endfunction
 
+function! s:tag_highlight(value) abort
+  return '<mark>'.s:mid(a:value, 2).'</mark>'
+endfunction
+
 
 function! s:tag_super(value) abort
   return '<sup><small>'.s:mid(a:value, 1).'</small></sup>'
@@ -654,6 +661,7 @@ function! s:process_tags_typefaces(line, header_ids) abort
   let line = s:make_tag(line, s:rxBold, 's:tag_strong', a:header_ids)
   let line = s:make_tag(line, vimwiki#vars#get_wikilocal('rx_todo'), 's:tag_todo')
   let line = s:make_tag(line, s:rxDelText, 's:tag_strike')
+  let line = s:make_tag(line, s:rxHighlight, 's:tag_highlight')
   let line = s:make_tag(line, s:rxSuperScript, 's:tag_super')
   let line = s:make_tag(line, s:rxSubScript, 's:tag_sub')
   let line = s:make_tag(line, s:rxCode, 's:tag_code')
