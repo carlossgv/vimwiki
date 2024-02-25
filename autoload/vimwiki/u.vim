@@ -473,6 +473,10 @@ function! vimwiki#u#hi_typeface(dic) abort
     call vimwiki#u#hi_tag(u[0], u[1], 'VimwikiDelText', nested)
   endfor
 
+  for u in a:dic['hl']
+    call vimwiki#u#hi_tag(u[0], u[1], 'VimwikiHL', nested)
+  endfor
+
   "" Code do not contain anything but can be contained very nested
   for u in a:dic['code']
     call vimwiki#u#hi_tag(u[0], u[1], 'VimwikiCode', '')

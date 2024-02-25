@@ -298,6 +298,7 @@ if vimwiki#vars#get_global('valid_html_tags') !=? ''
     \ 'underline': [['<u>', '</u\_s*>']],
     \ 'code': [['<code>', '</code\_s*>']],
     \ 'del': [['<del>', '</del\_s*>']],
+    \ 'hl': [['<mark>', '</mark\_s*>']],
     \ 'eq': [],
     \ 'sup': [['<sup>', '</sup\_s*>']],
     \ 'sub': [['<sub>', '</sub\_s*>']],
@@ -460,6 +461,8 @@ else
   hi def link VimwikiDelText Constant
 endif
 hi def link VimwikiDelTextT VimwikiDelText
+
+hi def link VimWikiHL Constant
 
 hi def link VimwikiSuperScript Number
 hi def link VimwikiSuperScriptT VimwikiSuperScript
